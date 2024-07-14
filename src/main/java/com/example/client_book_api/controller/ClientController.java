@@ -17,7 +17,7 @@ public class ClientController {
     private final ClientService clientService;
 
     @PostMapping("/client")
-    public ResponseEntity<?> postClient(@ModelAttribute ClientDto clientDto) throws IOException {
+    public ResponseEntity<?> postClient(@RequestBody ClientDto clientDto) throws IOException {
         boolean success = clientService.postClient(clientDto);
         if(success){
             return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -38,7 +38,7 @@ public class ClientController {
     }
 
     @PutMapping("/client/{clientId}")
-    public ResponseEntity<Void> updateAluno(@PathVariable Long clientId, @ModelAttribute ClientDto clientDto) throws IOException{
+    public ResponseEntity<Void> updateAluno(@PathVariable Long clientId, @RequestBody ClientDto clientDto) throws IOException{
         try {
             boolean success = clientService.updateClient(clientId, clientDto);
             if(success) return ResponseEntity.status(HttpStatus.OK).build();

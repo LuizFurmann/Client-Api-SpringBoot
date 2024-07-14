@@ -13,7 +13,6 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;
 
-    @Column(nullable = false)
     private String name;
 
     private String fantasyName;
